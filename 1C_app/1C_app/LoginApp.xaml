@@ -1,0 +1,41 @@
+﻿<Window x:Class="_1C_app.LoginApp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1C_app"
+        mc:Ignorable="d"
+        Title="LoginApp" Height="1080" Width="1920" WindowState="Maximized" >
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,188,0,0" TextWrapping="Wrap" Text="Форма авторизации" VerticalAlignment="Top" FontSize="75" Foreground="#FF7B7B7B" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,310,0,0" TextWrapping="Wrap" Text="Пожалуйста, авторизируйтесь в системе, используя ваш адрес электронной почты и пароль" FontSize="35" VerticalAlignment="Top" Width="1348" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="552,487,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.534,0.114"/>
+        <TextBox x:Name="Login_TextBox" HorizontalAlignment="Left" Margin="660,487,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="762" Height="53" FontSize="40" Text="a.adkin@dayrep.net"/>
+        <TextBlock HorizontalAlignment="Left" Margin="486,596,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.534,0.114"/>
+        <Button x:Name="Button_Login" Content="Login" HorizontalAlignment="Left" Margin="660,698,0,0" VerticalAlignment="Top" Height="58" Width="164" FontSize="35" Click="Button_Login_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="Button_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="845,698,0,0" VerticalAlignment="Top" Height="58" Width="164" FontSize="35" Click="Button_Cancel_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Rectangle x:Name="rectangleN1" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
+        <Button x:Name="Button_Exit" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Exit_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock x:Name="Name_1C" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
+        <PasswordBox x:Name="Password_Box" HorizontalAlignment="Left" Margin="660,605,0,0" VerticalAlignment="Top" Width="762" Height="44" FontSize="30" Password="jwZh2x@p"/>
+
+    </Grid>
+</Window>

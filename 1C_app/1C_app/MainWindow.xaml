@@ -1,0 +1,229 @@
+﻿<Window x:Class="_1C_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1C_app"
+        mc:Ignorable="d"
+        
+        Title="MainWindow"  Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <Grid
+    Width="1920" VerticalAlignment="Top" x:Name="GlavniyGrid" Margin="0,-2,0,0" Height="340" HorizontalAlignment="Center" d:IsHidden="True">
+            <Rectangle
+    HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="1920" Stroke="Black" x:Name="rectangleN1" Fill="Gray"/>
+            <TextBlock
+    VerticalAlignment="Top" Text="Marathon skills 2016" TextWrapping="Wrap" x:Name="Name_1C" Margin="0,37,0,0" HorizontalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="White"/>
+            <TextBlock
+    Width="360" VerticalAlignment="Top" Text="Москва, Россия вторник 10 сентября 2024" TextWrapping="Wrap" Margin="0,220,0,0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="ButtonGrid" d:IsHidden="True">
+            <Button
+    Width="850" VerticalAlignment="Top" x:Name="Button_SponserRunner" Margin="0,560,0,0" Height="174" HorizontalAlignment="Center" FontSize="50" Content="Я хочу стать спонсором бегуна" Click="Button_SponserRunner_Click">
+                <Button.Resources
+    >
+                    <Style
+    TargetType="{x:Type Border}">
+                        <Setter
+    Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+    Width="850" VerticalAlignment="Top" x:Name="Button_Runner" Margin="0,358,0,0" Height="174" HorizontalAlignment="Center" FontSize="50" Content="Я хочу стать бегуном" Click="Button_Runner_Click">
+                <Button.Resources
+    >
+                    <Style
+    TargetType="{x:Type Border}">
+                        <Setter
+    Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+    Width="850" VerticalAlignment="Top" x:Name="Button_learnEvent" Margin="0,764,0,0" Height="174" HorizontalAlignment="Center" FontSize="50" Content="Я хочу узнать больше о событии" Click="Button_learnEvent_Click">
+                <Button.Resources
+    >
+                    <Style
+    TargetType="{x:Type Border}">
+                        <Setter
+    Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <Rectangle
+    Fill="Gray" Margin="0,978,0,0" Stroke="Black"/>
+        <TextBlock
+    Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
+        <Grid x:Name="RunnerGrid" Visibility="Visible">
+            <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
+            <Button x:Name="Button_Exit" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Exit_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock x:Name="Name_1C1" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
+            <Button x:Name="Bil_Runnerom" Content="Я учавстовал ранее" HorizontalAlignment="Center" Margin="0,334,0,0" VerticalAlignment="Top" Height="158" Width="903" FontSize="50" RenderTransformOrigin="0.537,1.419" Click="Bil_Runnerom_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Nebil_Runnerom" Content="Я новый участник" HorizontalAlignment="Center" Margin="0,532,0,0" VerticalAlignment="Top" Height="158" Width="904" FontSize="50" RenderTransformOrigin="0.537,1.419" Click="Nebil_Runnerom_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <Grid x:Name="LoginGrid" d:IsHidden="True">
+            <Button
+                Width="196" VerticalAlignment="Top" x:Name="Button_Logint" Margin="1696,865,0,0" Height="73" HorizontalAlignment="Left" FontSize="30" Content="Login" Click="Button_Logint_Click">
+                <Button.Resources
+    >
+                    <Style
+                        TargetType="{x:Type Border}">
+                        <Setter
+                            Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <Grid x:Name="DiscoverEvent" Visibility="Visible" d:IsHidden="True">
+            <Button
+    Width="663" VerticalAlignment="Top" Margin="1048,321,0,0" Height="141" HorizontalAlignment="Left" FontSize="35" FontStyle="Italic" Content="Насколько долгий &#xA;марафон">
+                <Button.Resources
+    >
+                    <Style
+            TargetType="{x:Type Border}">
+                        <Setter
+                Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+    Width="663" VerticalAlignment="Top" Margin="1048,489,0,0" Height="141" HorizontalAlignment="Left" FontSize="35" FontStyle="Italic"  Content="Список&#xA;благотворительных&#xA;организаций">
+                <Button.Resources
+    >
+                    <Style
+            TargetType="{x:Type Border}">
+                        <Setter
+                Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+    Width="663" VerticalAlignment="Top" Margin="1048,657,0,0" Height="141" HorizontalAlignment="Left" FontSize="35" FontStyle="Italic" Content="BMR калькулятор">
+                <Button.Resources
+    >
+                    <Style
+            TargetType="{x:Type Border}">
+                        <Setter
+                Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+    Width="663" VerticalAlignment="Top" Margin="202,489,0,0" Height="141" HorizontalAlignment="Left" FontSize="35" FontStyle="Italic" Content="Предыдущие &#xA;результаты">
+                <Button.Resources
+    >
+                    <Style
+    TargetType="{x:Type Border}">
+                        <Setter
+    Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Rectangle x:Name="rectangleN1_Копировать" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
+            <Button x:Name="ExitMain_Button" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="ExitMain_Button_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock x:Name="Name" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,173,0,0" TextWrapping="Wrap" Text="Подробная информация" VerticalAlignment="Top" FontSize="50" Foreground="#FF797979" FontWeight="Bold"/>
+            <Button Content="Marathon skills 2016" HorizontalAlignment="Left" Margin="204,321,0,0" VerticalAlignment="Top" Width="663" Height="141" FontStyle="Italic" FontSize="35">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="BMI Калькулятор" HorizontalAlignment="Left" Margin="204,657,0,0" VerticalAlignment="Top" Width="663" Height="141" FontStyle="Italic" FontSize="35">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <Grid x:Name="BecomeSponsor" d:IsHidden="True">
+            <Rectangle x:Name="rectangleN1_Копировать1" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
+            <Button x:Name="Button_Canceled" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Cenceled_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock x:Name="Name_1C_Копировать" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,143,0,0" TextWrapping="Wrap" Text="Спонсор Бегуна" VerticalAlignment="Top" FontSize="45" Foreground="#FF5D5D5D"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,208,0,0" TextWrapping="Wrap" Text="Пожалуйста выбирете бегуна, которого вы хотели бы спонсировать и сумму, которую вы хотели бы спонсировать. Спасибо за вышу поддержку бегунов и их благотворительных учереждений " VerticalAlignment="Top" FontSize="30" Width="1296" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Margin="212,333,0,0" TextWrapping="Wrap" Text="Информация о Спонсоре" VerticalAlignment="Top" FontSize="45" Foreground="#FF5D5D5D"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1248,344,0,0" TextWrapping="Wrap" Text="Благотворительность" VerticalAlignment="Top" FontSize="45" Foreground="#FF5D5D5D"/>
+            <TextBlock HorizontalAlignment="Left" Margin="135,444,0,0" TextWrapping="Wrap" Text="Ваше имя:" VerticalAlignment="Top" FontSize="30" Width="164"/>
+            <TextBox HorizontalAlignment="Left" Margin="299,444,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="40" FontSize="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="189,0,0,0" TextWrapping="Wrap" Text="Бегун:" VerticalAlignment="Center" FontSize="30" Width="110"/>
+            <TextBlock HorizontalAlignment="Left" Margin="189,590,0,0" TextWrapping="Wrap" Text="Карта:" VerticalAlignment="Top" FontSize="30" Width="95"/>
+            <TextBox HorizontalAlignment="Left" Margin="299,590,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="40" FontSize="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="63,662,0,0" TextWrapping="Wrap" Text="Номер карты#:" VerticalAlignment="Top" FontSize="30" Width="221"/>
+            <TextBox HorizontalAlignment="Left" Margin="299,662,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="40" FontSize="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="63,738,0,0" TextWrapping="Wrap" Text="Срок действия:" VerticalAlignment="Top" FontSize="30" Width="236"/>
+            <TextBox HorizontalAlignment="Left" Margin="299,738,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Height="40" FontSize="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="202,808,0,0" TextWrapping="Wrap" Text="CVC:" VerticalAlignment="Top" FontSize="30" Width="82"/>
+            <TextBox HorizontalAlignment="Left" Margin="299,808,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Height="40" FontSize="25"/>
+            <TextBox HorizontalAlignment="Left" Margin="408,738,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" Height="40" FontSize="25"/>
+            <ComboBox HorizontalAlignment="Left" Margin="299,0,0,0" VerticalAlignment="Center" Width="441" Height="40"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1340,428,0,0" TextWrapping="Wrap" Text="Фонд Кошек" VerticalAlignment="Top" FontSize="30" Foreground="Black"/>
+            <Image Margin="1574,423,312,596" Source="/report_4517968.png" Stretch="Fill" RenderTransformOrigin="-1.265,0.056"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1248,512,0,0" TextWrapping="Wrap" Text="Сумма пожертвования" VerticalAlignment="Top" FontSize="45" Foreground="#FF5D5D5D"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1412,577,0,0" TextWrapping="Wrap" Text="50$" VerticalAlignment="Top" FontSize="90" Foreground="#FF5D5D5D"/>
+            <TextBox HorizontalAlignment="Left" Margin="1412,738,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Height="40" FontSize="25"/>
+            <Button x:Name="Button_Minus" Content="-" HorizontalAlignment="Left" Margin="1363,738,0,0" VerticalAlignment="Top" Height="40" Width="44" FontSize="25" Click="Button_Minus_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Button_Plus" Content="+" HorizontalAlignment="Left" Margin="1551,738,0,0" VerticalAlignment="Top" Height="40" Width="44" FontSize="25" Click="Button_Plus_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Button_Pay" Content="Заплатить" HorizontalAlignment="Left" Margin="1340,810,0,0" VerticalAlignment="Top" Height="40" Width="128" FontSize="20" Click="Button_Pay_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Button_Cencel" Content="Отмена" HorizontalAlignment="Left" Margin="1485,810,0,0" VerticalAlignment="Top" Height="40" Width="110" FontSize="20" Click="Button_Сеncel_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

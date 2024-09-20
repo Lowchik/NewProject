@@ -1,0 +1,53 @@
+﻿<Window x:Class="_1C_app.MenuKoordinatora"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1C_app"
+        mc:Ignorable="d"
+        Title="MenuKoordinatora" Height="1080" Width="1920">
+    <Grid>
+        <Grid x:Name="MenuKordinatora">
+            <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
+            <Button x:Name="Button_Exit" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Exit_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock x:Name="Name_1C1" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
+            <Button x:Name="Loguot" Content="Loguot" HorizontalAlignment="Left" Margin="1704,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Loguot_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock HorizontalAlignment="Center" Margin="0,176,0,0" TextWrapping="Wrap" Text="Меню Координатора" VerticalAlignment="Top" FontSize="45"/>
+            <Button
+                Width="663" VerticalAlignment="Top" Margin="1048,321,0,0" Height="141" HorizontalAlignment="Left" FontSize="35" FontStyle="Italic" Content="Спонсоры">
+                <Button.Resources
+    >
+                    <Style
+                        TargetType="{x:Type Border}">
+                        <Setter
+                            Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Бегуны" HorizontalAlignment="Left" Margin="204,321,0,0" VerticalAlignment="Top" Width="663" Height="141" FontStyle="Italic" FontSize="35">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Rectangle
+                Fill="Gray" Margin="0,978,0,0" Stroke="Black"/>
+            <TextBlock
+                Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
+        </Grid>
+
+    </Grid>
+</Window>
