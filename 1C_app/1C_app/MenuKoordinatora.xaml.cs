@@ -38,5 +38,10 @@ namespace _1C_app
         {
             BackMenu();
         }
+
+        private void Clouse_Window(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

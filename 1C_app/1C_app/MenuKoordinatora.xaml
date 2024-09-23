@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1C_app"
         mc:Ignorable="d"
-        Title="MenuKoordinatora" Height="1080" Width="1920">
+        Title="MenuKoordinatora" Height="1080" Width="1920" WindowStyle = "None"  WindowState="Maximized">
     <Grid>
         <Grid x:Name="MenuKordinatora">
             <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
@@ -47,6 +47,7 @@
                 Fill="Gray" Margin="0,978,0,0" Stroke="Black"/>
             <TextBlock
                 Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
 
     </Grid>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1C_app"
         mc:Ignorable="d"
-        Title="LoginApp" Height="1080" Width="1920" WindowState="Maximized" >
+        Title="LoginApp" Height="1080" Width="1920" WindowState="Maximized" WindowStyle = "None" >
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,188,0,0" TextWrapping="Wrap" Text="Форма авторизации" VerticalAlignment="Top" FontSize="75" Foreground="#FF7B7B7B" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,310,0,0" TextWrapping="Wrap" Text="Пожалуйста, авторизируйтесь в системе, используя ваш адрес электронной почты и пароль" FontSize="35" VerticalAlignment="Top" Width="1348" TextAlignment="Center"/>
@@ -36,6 +36,7 @@
         </Button>
         <TextBlock x:Name="Name_1C" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
         <PasswordBox x:Name="Password_Box" HorizontalAlignment="Left" Margin="660,605,0,0" VerticalAlignment="Top" Width="762" Height="44" FontSize="30" Password="jwZh2x@p"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
 
     </Grid>
 </Window>

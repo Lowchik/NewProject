@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1C_app"
         mc:Ignorable="d"
-        Title="RegistrationUser" Height="1080" Width="1920" WindowState="Maximized">
+        Title="RegistrationUser" Height="1080" Width="1920" WindowState="Maximized"  WindowStyle = "None">
     <Grid>
         <Grid x:Name="RegistratiomRunner">
             <Rectangle x:Name="rectangleN1" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
@@ -51,5 +51,6 @@
             </Button>
 
         </Grid>
+        <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

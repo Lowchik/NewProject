@@ -20,13 +20,18 @@ namespace _1C_app
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
             DiscoverEvent.Visibility = Visibility.Hidden;
             RunnerGrid.Visibility = Visibility.Hidden;
             BecomeSponsor.Visibility = Visibility.Hidden;
+
+            
         }
+
+        
 
         private void Button_Logint_Click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +123,11 @@ namespace _1C_app
             RegistrationUser MainWindow = new RegistrationUser();
             this.Close();
             MainWindow.ShowDialog();
+        }
+
+        private void Clouse_Window(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

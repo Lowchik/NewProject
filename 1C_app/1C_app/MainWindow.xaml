@@ -6,16 +6,17 @@
         xmlns:local="clr-namespace:_1C_app"
         mc:Ignorable="d"
         
-        Title="MainWindow"  Height="1080" Width="1920" WindowState="Maximized">
+        Title="MainWindow"  Height="1080" Width="1920" WindowState="Maximized" WindowStyle = "None">
     <Grid>
         <Grid
-    Width="1920" VerticalAlignment="Top" x:Name="GlavniyGrid" Margin="0,-2,0,0" Height="340" HorizontalAlignment="Center" d:IsHidden="True">
+    Width="1920" VerticalAlignment="Top" x:Name="GlavniyGrid" Margin="0,-2,0,0" Height="340" HorizontalAlignment="Center">
             <Rectangle
     HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="1920" Stroke="Black" x:Name="rectangleN1" Fill="Gray"/>
             <TextBlock
     VerticalAlignment="Top" Text="Marathon skills 2016" TextWrapping="Wrap" x:Name="Name_1C" Margin="0,37,0,0" HorizontalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="White"/>
             <TextBlock
     Width="360" VerticalAlignment="Top" Text="Москва, Россия вторник 10 сентября 2024" TextWrapping="Wrap" Margin="0,220,0,0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+            <Button x:Name="Clouse_Win" Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
         <Grid x:Name="ButtonGrid" d:IsHidden="True">
             <Button
@@ -56,7 +57,7 @@
     Fill="Gray" Margin="0,978,0,0" Stroke="Black"/>
         <TextBlock
     Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
-        <Grid x:Name="RunnerGrid" Visibility="Visible">
+        <Grid x:Name="RunnerGrid" Visibility="Visible" d:IsHidden="True">
             <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Exit" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Exit_Click">
                 <Button.Resources>
@@ -80,6 +81,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
         <Grid x:Name="LoginGrid" d:IsHidden="True">
             <Button
@@ -163,6 +165,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
         <Grid x:Name="BecomeSponsor" d:IsHidden="True">
             <Rectangle x:Name="rectangleN1_Копировать1" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
@@ -224,6 +227,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
     </Grid>
 </Window>

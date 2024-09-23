@@ -37,5 +37,10 @@ namespace _1C_app
             this.Close();
             ChoiceUser.ShowDialog();
         }
+
+        private void Clouse_Window(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
