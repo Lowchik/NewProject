@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ChoiceUser" Height="1080" Width="1920"  WindowState="Maximized" WindowStyle = "None">
     <Grid>
-        <Grid x:Name="MenuRunnera">
+        <Grid x:Name="MenuRunnera" d:IsHidden="True">
             <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Exit" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Exit_Click">
                 <Button.Resources>
@@ -41,7 +41,7 @@
                 </Button.Resources>
             </Button>
             <Button
-                Width="663" VerticalAlignment="Top" Margin="202,489,0,0" Height="141" HorizontalAlignment="Left" FontSize="35" FontStyle="Italic" Content="Редактирование&#xA;профиля">
+                Width="663" VerticalAlignment="Top" Margin="202,489,0,0" Height="141" HorizontalAlignment="Left" FontSize="35" FontStyle="Italic" Content="Редактирование&#xA;профиля" Click="ButtonEditProfile">
                 <Button.Resources
     >
                     <Style
@@ -58,7 +58,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Content="Контакты" HorizontalAlignment="Left" Margin="204,657,0,0" VerticalAlignment="Top" Width="663" Height="141" FontStyle="Italic" FontSize="35">
+            <Button Content="Контакты" HorizontalAlignment="Left" Margin="204,657,0,0" VerticalAlignment="Top" Width="663" Height="141" FontStyle="Italic" FontSize="35" Click="ShowContacts">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="25"/>
@@ -77,6 +77,79 @@
             <TextBlock
                 Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
             <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
+        </Grid>
+        <Grid x:Name="Contact" Margin="293,282,259,162" d:IsHidden="True">
+            <Rectangle HorizontalAlignment="Center" Height="636" Stroke="Black" VerticalAlignment="Center" Width="1348" Fill="White"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Контакты" VerticalAlignment="Top" FontSize="50"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Для получения дополнительной информации пожалуйста свяжитесь с координаторами" VerticalAlignment="Top" FontSize="35" Margin="58,119,0,0" Width="917"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Телефон:" VerticalAlignment="Top" FontSize="40" Margin="58,251,0,0" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="+55 11 9988 7766" VerticalAlignment="Top" FontSize="40" Margin="242,251,0,0"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="40" Margin="58,340,0,0" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="coordinators@marathonskills.org" VerticalAlignment="Top" FontSize="40" Margin="176,340,0,0"/>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1316,0,0,0" VerticalAlignment="Top" FontSize="40" Foreground="#FFFD0000" BorderBrush="{x:Null}" Background="{x:Null}" RenderTransformOrigin="0.109,0.507" Click="BattonClouse"/>
+        </Grid>
+        <Grid x:Name="editing">
+            <Rectangle x:Name="rectangle_Копировать" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
+            <Button x:Name="Button_Exit_Копировать" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_ExitMenuRunner">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock x:Name="Name_1C1_Копировать" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
+            <Button x:Name="Loguot_Копировать" Content="Loguot" HorizontalAlignment="Left" Margin="1704,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Loguot_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,176,0,0" TextWrapping="Wrap" Text="Редактирование профиля" VerticalAlignment="Top" FontSize="45"/>
+            <TextBlock HorizontalAlignment="Left" Margin="361,318,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="45"/>
+            <TextBlock HorizontalAlignment="Left" Margin="379,412,0,0" TextWrapping="Wrap" Text="Имя:" VerticalAlignment="Top" FontSize="45"/>
+            <TextBox HorizontalAlignment="Left" Margin="516,414,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="406" Height="58" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBlock HorizontalAlignment="Left" Margin="281,502,0,0" TextWrapping="Wrap" Text="Фамилия:" VerticalAlignment="Top" FontSize="45"/>
+            <TextBox HorizontalAlignment="Left" Margin="516,498,0,0" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top" Width="406" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBlock HorizontalAlignment="Left" Margin="385,590,0,0" TextWrapping="Wrap" Text="Пол:" VerticalAlignment="Top" FontSize="45"/>
+            <TextBlock HorizontalAlignment="Left" Margin="150,685,0,0" TextWrapping="Wrap" Text="Дата рождения:" VerticalAlignment="Top" FontSize="45"/>
+            <TextBox HorizontalAlignment="Left" Margin="516,683,0,0" TextWrapping="Wrap" Text="Формат даты" VerticalAlignment="Top" Width="307" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBlock HorizontalAlignment="Left" Margin="323,778,0,0" TextWrapping="Wrap" Text="Страна:" VerticalAlignment="Top" FontSize="45"/>
+            <ComboBox HorizontalAlignment="Left" Margin="516,590,0,0" VerticalAlignment="Top" Width="336" Height="60"/>
+            <ComboBox HorizontalAlignment="Left" Margin="516,778,0,0" VerticalAlignment="Top" Width="366" Height="60"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1389,318,0,0" TextWrapping="Wrap" Text="Смена пароля" VerticalAlignment="Top" FontSize="45"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1254,400,0,0" TextWrapping="Wrap" Text="Оставьте эти поля, незаполненными, если вы не хотите изменять пороль." VerticalAlignment="Top" FontSize="30" Width="563" Foreground="#FF8A8A8A"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1202,535,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top" FontSize="45"/>
+            <TextBox HorizontalAlignment="Left" Margin="1389,536,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="479" Height="58" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1042,624,0,0" TextWrapping="Wrap" Text="Повтор пароля:" VerticalAlignment="Top" FontSize="45"/>
+            <TextBox HorizontalAlignment="Left" Margin="1389,620,0,0" TextWrapping="Wrap" Text="Re-enter Password" VerticalAlignment="Top" Width="479" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <Button
+                Width="219" VerticalAlignment="Top" x:Name="Button_Save" Margin="741,888,0,0" Height="72" HorizontalAlignment="Left" FontSize="35" Content="Сохранить" Click="Button_SaveProfile_Click">
+                <Button.Resources
+    >
+                    <Style
+                        TargetType="{x:Type Border}">
+                        <Setter
+                            Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+            Width="219" VerticalAlignment="Top" x:Name="Button_cancel" Margin="1007,888,0,0" Height="72" HorizontalAlignment="Left" FontSize="35" Content="Отмена" Click="Button_CancelProfile_Click">
+                <Button.Resources
+    >
+                    <Style
+                    TargetType="{x:Type Border}">
+                        <Setter
+                        Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Rectangle
+                Fill="Gray" Margin="0,978,0,0" Stroke="Black"/>
+            <TextBlock
+                Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
         </Grid>
     </Grid>
 </Window>

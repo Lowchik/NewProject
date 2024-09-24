@@ -53,6 +53,7 @@ namespace _1C_app
 
                         if (hashedPasswordFromDB != null && hashedPasswordFromDB.Equals(hashedEnteredPassword))
                         {
+
                             ChoiceUser LoginApp = new ChoiceUser();
                             this.Close();
                             LoginApp.ShowDialog();

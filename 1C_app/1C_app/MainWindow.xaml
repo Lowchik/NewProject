@@ -18,7 +18,7 @@
     Width="360" VerticalAlignment="Top" Text="Москва, Россия вторник 10 сентября 2024" TextWrapping="Wrap" Margin="0,220,0,0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
             <Button x:Name="Clouse_Win" Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
-        <Grid x:Name="ButtonGrid" d:IsHidden="True">
+        <Grid x:Name="ButtonGrid">
             <Button
     Width="850" VerticalAlignment="Top" x:Name="Button_SponserRunner" Margin="0,560,0,0" Height="174" HorizontalAlignment="Center" FontSize="50" Content="Я хочу стать спонсором бегуна" Click="Button_SponserRunner_Click">
                 <Button.Resources
@@ -83,7 +83,7 @@
             </Button>
             <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
-        <Grid x:Name="LoginGrid" d:IsHidden="True">
+        <Grid x:Name="LoginGrid">
             <Button
                 Width="196" VerticalAlignment="Top" x:Name="Button_Logint" Margin="1696,865,0,0" Height="73" HorizontalAlignment="Left" FontSize="30" Content="Login" Click="Button_Logint_Click">
                 <Button.Resources
