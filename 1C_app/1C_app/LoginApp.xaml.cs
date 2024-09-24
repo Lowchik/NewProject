@@ -22,7 +22,8 @@ namespace _1C_app
     public partial class LoginApp : Window
     {
         
-        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+       // string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+        string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
         public LoginApp()
         {
             InitializeComponent();
@@ -45,22 +46,57 @@ namespace _1C_app
                 try
                 {
                     connection.Open();
-                    string sqlQuery = $"SELECT Password FROM [User] WHERE Email = '{Global.Login}'";
+
+                    
+                    string sqlQuery = $@"SELECT u.Password, r.RoleName FROM [User] u INNER JOIN [Role] r ON u.RoleId = r.RoleId WHERE u.Email = '{Global.Login}'";
+
                     using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                     {
                         string hashedEnteredPassword = HashPassword(enteredPassword);
-                        string hashedPasswordFromDB = (string)command.ExecuteScalar();
 
-                        if (hashedPasswordFromDB != null && hashedPasswordFromDB.Equals(hashedEnteredPassword))
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
+                            if (reader.Read())
+                            {
+                                string hashedPasswordFromDB = reader["Password"].ToString();
+                                string roleName = reader["RoleName"].ToString();
 
-                            ChoiceUser LoginApp = new ChoiceUser();
-                            this.Close();
-                            LoginApp.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Неверная электронная почта или пароль");
+                                
+                                if (hashedPasswordFromDB.Equals(hashedEnteredPassword))
+                                {
+                                    
+                                    if (roleName == "Бегун")
+                                    {
+                                        ChoiceUser LoginApp = new ChoiceUser();
+                                        this.Close();
+                                        LoginApp.ShowDialog();
+                                    }
+                                    else if (roleName == "Администратор")
+                                    {
+                                        MenuAdministratora LoginApp = new MenuAdministratora();
+                                        this.Close();
+                                        LoginApp.ShowDialog();
+                                    }
+                                    else if (roleName == "Координатор")
+                                    {
+                                        MenuKoordinatora LoginApp = new MenuKoordinatora();
+                                        this.Close();
+                                        LoginApp.ShowDialog();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Неизвестная роль");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Неверная электронная почта или пароль");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Неверная электронная почта или пароль");
+                            }
                         }
                     }
                 }
@@ -70,6 +106,7 @@ namespace _1C_app
                 }
             }
         }
+
         private string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
