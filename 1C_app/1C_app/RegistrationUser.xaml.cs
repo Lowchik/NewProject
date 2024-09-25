@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,36 @@ namespace _1C_app
     /// </summary>
     public partial class RegistrationUser : Window
     {
+        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
         public RegistrationUser()
         {
             InitializeComponent();
+            LoadComboBoxData();
+        }
+        private void LoadComboBoxData()
+        {
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            if (connection.State == ConnectionState.Open)
+            {
+                string sqlExpression1 = $"select Gender from Gender";
+                SqlCommand command1 = new SqlCommand(sqlExpression1, connection);
+                SqlDataReader reader1 = command1.ExecuteReader();
+                if (reader1.HasRows)
+                {
+                    while (reader1.Read())
+                    {
+                        string fullName = $"{reader1.GetString(0)}";
+
+                        Gender_add_ComboBox.Items.Add(fullName);
+                    }
+                    reader1.Close();
+                }
+
+            }
+            connection.Close();
         }
         private void BackMenu()
         {

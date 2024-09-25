@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ChoiceUser" Height="1080" Width="1920"  WindowState="Maximized" WindowStyle = "None">
     <Grid>
-        <Grid x:Name="MenuRunnera" d:IsHidden="True">
+        <Grid x:Name="MenuRunnera">
             <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Exit" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Exit_Click">
                 <Button.Resources>
@@ -78,17 +78,21 @@
                 Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
             <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
-        <Grid x:Name="Contact" Margin="293,282,259,162" d:IsHidden="True">
+        <Grid x:Name="Contact" Margin="293,282,259,162">
             <Rectangle HorizontalAlignment="Center" Height="636" Stroke="Black" VerticalAlignment="Center" Width="1348" Fill="White"/>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Контакты" VerticalAlignment="Top" FontSize="50"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Для получения дополнительной информации пожалуйста свяжитесь с координаторами" VerticalAlignment="Top" FontSize="35" Margin="58,119,0,0" Width="917"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Телефон:" VerticalAlignment="Top" FontSize="40" Margin="58,251,0,0" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="+55 11 9988 7766" VerticalAlignment="Top" FontSize="40" Margin="242,251,0,0"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="40" Margin="58,340,0,0" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="coordinators@marathonskills.org" VerticalAlignment="Top" FontSize="40" Margin="176,340,0,0"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="coordinators@marathonskills.org" VerticalAlignment="Top" FontSize="40" Margin="176,340,0,0">
+                <TextBlock.InputBindings>
+                    <MouseBinding Command="{Binding CopyToClipBoard}" MouseAction="LeftClick" CommandParameter="{Binding ElementName=TextBlockCopy, Path=Text}"/>
+                </TextBlock.InputBindings>
+            </TextBlock>
             <Button Content="X" HorizontalAlignment="Left" Margin="1316,0,0,0" VerticalAlignment="Top" FontSize="40" Foreground="#FFFD0000" BorderBrush="{x:Null}" Background="{x:Null}" RenderTransformOrigin="0.109,0.507" Click="BattonClouse"/>
         </Grid>
-        <Grid x:Name="editing">
+        <Grid x:Name="editing" d:IsHidden="True">
             <Rectangle x:Name="rectangle_Копировать" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Exit_Копировать" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_ExitMenuRunner">
                 <Button.Resources>

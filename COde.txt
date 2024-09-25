@@ -1,0 +1,5 @@
+
+DECLARE @Email VARCHAR (50) = N'ivan123112312312312312312323@example.com';
+INSERT INTO [User] ([Email], [Password], [FirstName], [LastName], [RoleId]) VALUES (@Email, N'a23f47002f3c4b0781b5cf9d20dbd45b578eac4a77623d6f1e13f7c0c45d1ac7', N'AHMAD     ', N'ADKIN     ', N'R         ')
+INSERT INTO [Runner] ([RunnerId], [Email], [Gender], [DateOfBirth], [CountryCode]) VALUES (2, @Email, 1, N'2005-08-15', 143600)
+

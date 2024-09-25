@@ -33,8 +33,8 @@
             <TextBlock HorizontalAlignment="Left" Margin="1035,494,0,0" TextWrapping="Wrap" Text="Дата рождения:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
             <TextBox x:Name="Birthday_add" HorizontalAlignment="Left" Margin="1342,500,0,0" TextWrapping="Wrap" Text="Дата рождения" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="1189,578,0,0" TextWrapping="Wrap" Text="Страна:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <ComboBox x:Name="Gender_add" HorizontalAlignment="Left" Margin="1342,412,0,0" VerticalAlignment="Top" Width="436" Height="53"/>
-            <ComboBox x:Name="Country_add" HorizontalAlignment="Left" Margin="1342,584,0,0" VerticalAlignment="Top" Width="470" Height="53"/>
+            <ComboBox x:Name="Gender_add_ComboBox" HorizontalAlignment="Left" Margin="1342,412,0,0" VerticalAlignment="Top" Width="436" Height="53"/>
+            <ComboBox x:Name="Country_add_ComboBox" HorizontalAlignment="Left" Margin="1342,584,0,0" VerticalAlignment="Top" Width="470" Height="53"/>
             <Button x:Name="Button_registr" Content="Регистрация" HorizontalAlignment="Left" Margin="596,858,0,0" VerticalAlignment="Top" Height="58" Width="218" FontSize="35" Click="Button_registr_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">

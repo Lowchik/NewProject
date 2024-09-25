@@ -24,3 +24,13 @@ C:\Users\offni\OneDrive\Рабочий стол\NewProject\Marathon\Marathon\bin
 C:\Users\offni\OneDrive\Рабочий стол\NewProject\Marathon\Marathon\obj\Debug\Marathon.sqlproj.AssemblyReference.cache
 C:\Users\offni\OneDrive\Рабочий стол\NewProject\Marathon\Marathon\obj\Debug\Marathon.dll
 C:\Users\offni\OneDrive\Рабочий стол\NewProject\Marathon\Marathon\obj\Debug\Marathon.pdb
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\bin\Debug\Marathon.dacpac
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\bin\Debug\Marathon.dll
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\bin\Debug\Marathon.pdb
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\obj\Debug\Marathon.sqlproj.AssemblyReference.cache
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\obj\Debug\Model.xml
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\obj\Debug\refactor.xml
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\obj\Debug\postdeploy.sql
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\obj\Debug\predeploy.sql
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\obj\Debug\Marathon.dll
+C:\Users\NikitinNM\Desktop\NewProject\Marathon\Marathon\obj\Debug\Marathon.pdb

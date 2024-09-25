@@ -22,8 +22,8 @@ namespace _1C_app
     public partial class LoginApp : Window
     {
         
-       // string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
-        string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
+       string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+       // string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
         public LoginApp()
         {
             InitializeComponent();
