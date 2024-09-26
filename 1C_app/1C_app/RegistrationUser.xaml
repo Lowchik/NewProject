@@ -20,21 +20,21 @@
             <TextBlock HorizontalAlignment="Center" Margin="0,176,0,0" TextWrapping="Wrap" Text="Регистрация бегуна" VerticalAlignment="Top" FontSize="50" Foreground="#FF989898" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,268,0,0" TextWrapping="Wrap" Text="Пожалуйста заполните всю информацию, чтобы зарегистрироваться в качестве бегуна" VerticalAlignment="Top" FontSize="30" Width="1164" TextAlignment="Center"/>
             <TextBlock HorizontalAlignment="Left" Margin="250,406,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="Email_add" HorizontalAlignment="Left" Margin="378,412,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="516" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="Email_add" HorizontalAlignment="Left" Margin="378,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="516" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="207,0,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Center" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="Password_add" HorizontalAlignment="Left" Margin="378,0,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Center" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="Password_add" HorizontalAlignment="Left" Margin="378,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="13,584,0,0" TextWrapping="Wrap" Text="Повторите пароль:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="rPassword_add" HorizontalAlignment="Left" Margin="378,590,0,0" TextWrapping="Wrap" Text="Повторите пароль" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="rPassword_add" HorizontalAlignment="Left" Margin="378,590,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="250,668,0,0" TextWrapping="Wrap" Text="Имя:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="FirstName_add" HorizontalAlignment="Left" Margin="378,674,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="FirstName_add" HorizontalAlignment="Left" Margin="378,674,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="179,756,0,0" TextWrapping="Wrap" Text="Фамилия:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="LastName_add" HorizontalAlignment="Left" Margin="378,756,0,0" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="LastName_add" HorizontalAlignment="Left" Margin="378,756,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="1244,400,0,0" TextWrapping="Wrap" Text="Пол:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
             <TextBlock HorizontalAlignment="Left" Margin="1035,494,0,0" TextWrapping="Wrap" Text="Дата рождения:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="Birthday_add" HorizontalAlignment="Left" Margin="1342,500,0,0" TextWrapping="Wrap" Text="Дата рождения" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="Birthday_add" HorizontalAlignment="Left" Margin="1342,500,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="1189,578,0,0" TextWrapping="Wrap" Text="Страна:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <ComboBox x:Name="Gender_add_ComboBox" HorizontalAlignment="Left" Margin="1342,412,0,0" VerticalAlignment="Top" Width="436" Height="53"/>
-            <ComboBox x:Name="Country_add_ComboBox" HorizontalAlignment="Left" Margin="1342,584,0,0" VerticalAlignment="Top" Width="470" Height="53"/>
+            <ComboBox x:Name="Gender_add_ComboBox" HorizontalAlignment="Left" Margin="1342,412,0,0" VerticalAlignment="Top" Width="436" Height="53" FontSize="35"/>
+            <ComboBox x:Name="Country_add_ComboBox" HorizontalAlignment="Left" Margin="1342,584,0,0" VerticalAlignment="Top" Width="470" Height="53" FontSize="35"/>
             <Button x:Name="Button_registr" Content="Регистрация" HorizontalAlignment="Left" Margin="596,858,0,0" VerticalAlignment="Top" Height="58" Width="218" FontSize="35" Click="Button_registr_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -49,8 +49,8 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
 
         </Grid>
-        <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>
