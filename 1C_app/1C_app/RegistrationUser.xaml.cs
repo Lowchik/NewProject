@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace _1C_app
 {
@@ -55,9 +56,30 @@ namespace _1C_app
         }
         private void LoadComboBoxGender()
         {
-
             Gender_add_ComboBox.ItemsSource = new List<string> { "Мужской", "Женский" };
         }
+        private void DateT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            string text = textBox.Text.Trim();
+
+            
+            text = Regex.Replace(text, @"\D", "");
+
+            if (text.Length >= 3)
+            {                
+                text = text.Insert(2, ".");
+
+                if (text.Length > 5)
+                {
+                    text = text.Insert(5, ".");
+                }
+            }
+
+            textBox.Text = text;
+            textBox.CaretIndex = text.Length;
+        }
+
         private void RegistrRunner()
         {
             bool check = false;
@@ -78,20 +100,25 @@ namespace _1C_app
                         MessageBox.Show("Поле Email ");
                         check = true;
                     }
-                    else
+                    else if (!Regex.IsMatch(Email_add.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+                    {
+                        Errorka.Text = ("Введите коректно почту");   
+                    }
+                    else 
                     {
                         command.Parameters.AddWithValue("@Email", Email_add.Text);
                     }
+                    
                     if ((Password_add.Text == "" && rPassword_add.Text == "")&& !check)
                     {
-                        MessageBox.Show("Поле Пароль не должно быть пустым");
+                        Errorka.Text = ("Поле Пароль не должно быть пустым");
                         check = true;
                     }
                     else if (this.Password_add.Text != rPassword_add.Text)
                     {
-
-                        MessageBox.Show("Пароль не совпадает с указаным");
+                        Errorka.Text = ("Пароль не совпадает с указаным");
                     }
+
                     else
                     {
                         command.Parameters.AddWithValue("@Password", Password_add.Text);
@@ -99,7 +126,7 @@ namespace _1C_app
                     }
                     if (FirstName_add.Text == "" && !check)
                     {
-                        MessageBox.Show("Поле Email");
+                        Errorka.Text = ("Заполните поле Имя");
                         check = true;
                     }
                     else
@@ -108,7 +135,7 @@ namespace _1C_app
                     }
                     if (LastName_add.Text == "" && !check)
                     {
-                        MessageBox.Show("Поле Email");
+                        Errorka.Text = ("Заполните поле Фамилия");
                         check = true;
                     }
                     else
@@ -117,9 +144,9 @@ namespace _1C_app
                     }
 
                     if (Gender_add_ComboBox.Text == "" && !check)
-                    { 
-                        
-                        MessageBox.Show("Поле Email");
+                    {
+
+                        Errorka.Text = ("Выберете пол");
                         check = true;
                     }
                     else
@@ -135,7 +162,7 @@ namespace _1C_app
                     }
                     if (Birthday_add.Text == "" && !check)
                     {
-                        MessageBox.Show("Поле Email");
+                        Errorka.Text = ("Заполните поле даата рождения");
                         check = true;
                     }
                     else
@@ -144,7 +171,7 @@ namespace _1C_app
                     }
                     if (Country_add_ComboBox.Text == "" && !check)
                     {
-                        MessageBox.Show("Поле Email");
+                        Errorka.Text = ("Выберете страну");
                         check = true;
                     }
                     else
