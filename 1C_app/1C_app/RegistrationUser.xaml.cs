@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
+using static _1C_app.LoginApp;
 
 namespace _1C_app
 {
@@ -58,16 +60,16 @@ namespace _1C_app
         {
             Gender_add_ComboBox.ItemsSource = new List<string> { "Мужской", "Женский" };
         }
-        private void DateT_TextChanged(object sender, TextChangedEventArgs e)
+        public void DateT_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             string text = textBox.Text.Trim();
 
-            
+
             text = Regex.Replace(text, @"\D", "");
 
             if (text.Length >= 3)
-            {                
+            {
                 text = text.Insert(2, ".");
 
                 if (text.Length > 5)
@@ -79,75 +81,113 @@ namespace _1C_app
             textBox.Text = text;
             textBox.CaretIndex = text.Length;
         }
+        private bool CheckEmail(string email)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+
+                string sqlQueryq = $"SELECT Email FROM [dbo].[user] WHERE Email = N'{email}' ";
+
+                using (SqlCommand command = new SqlCommand(sqlQueryq, connection))
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+
+            }
+        }
 
         private void RegistrRunner()
         {
-            bool check = false;
+            
             string sqlQueryy = "DECLARE @Emailll VARCHAR (50) = @Email;" +
                 "Declare @country int = (Select [Country].CountryCode from Country where [Country].CountryName = @CountryName);" +
                 "INSERT INTO [User] ([Email], [Password], [FirstName], [LastName], [RoleId]) VALUES (@Emailll,@Password,@FirstName,@LastName,N'R')" +
                 "INSERT INTO [Runner] ([RunnerId], [Email], [Gender], [DateOfBirth], [CountryCode]) VALUES ((SELECT ISNULL(MAX(RunnerId), 0) + 1 FROM [Runner]),@Emailll, @Gender, @DateOfBirth,@country)";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                
-                try
-                {
-                    connection.Open();
+
+                connection.Open();
                     SqlCommand command = new SqlCommand(sqlQueryy, connection);
 
-                    if (Email_add.Text == "" && !check)
+                    if (Email_add.Text == "" )
                     {
-                        MessageBox.Show("Поле Email ");
-                        check = true;
+                        throw new Exception("Введите коректно почту");
+                       
                     }
                     else if (!Regex.IsMatch(Email_add.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
                     {
-                        Errorka.Text = ("Введите коректно почту");   
+                        throw new Exception ("Введите коректно почту");
                     }
-                    else 
+                    else
                     {
-                        command.Parameters.AddWithValue("@Email", Email_add.Text);
+                        if (CheckEmail(Email_add.Text))
+                        {
+                            throw new Exception("Пользователь с такой электронной почтой, уже зарегестрирован");
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@Email", Email_add.Text);
+                        }
                     }
-                    
-                    if ((Password_add.Text == "" && rPassword_add.Text == "")&& !check)
+
+                    if ((Password_add.Text == "" && rPassword_add.Text == "") )
                     {
-                        Errorka.Text = ("Поле Пароль не должно быть пустым");
-                        check = true;
+                        throw new Exception ("Поле Пароль не должно быть пустым");
+                       
+                    }
+                    else if (!Regex.IsMatch(Password_add.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^]).{6,}$"))
+                    {
+                        throw new Exception("Введите коректно пароль");
                     }
                     else if (this.Password_add.Text != rPassword_add.Text)
                     {
-                        Errorka.Text = ("Пароль не совпадает с указаным");
+                        throw new Exception("Пароль не совпадает с указаным");
                     }
 
                     else
                     {
-                        command.Parameters.AddWithValue("@Password", Password_add.Text);
-                        
+                        command.Parameters.AddWithValue("@Password", HashPassword.HashPass(Password_add.Text));
+
                     }
-                    if (FirstName_add.Text == "" && !check)
+                    if (FirstName_add.Text == "" )
                     {
-                        Errorka.Text = ("Заполните поле Имя");
-                        check = true;
+                        throw new Exception("Заполните поле Имя");
+                       
                     }
+                    
+                    
                     else
                     {
                         command.Parameters.AddWithValue("@FirstName", FirstName_add.Text);
                     }
-                    if (LastName_add.Text == "" && !check)
+                    if (LastName_add.Text == "" )
                     {
-                        Errorka.Text = ("Заполните поле Фамилия");
-                        check = true;
+                        throw new Exception("Заполните поле Фамилия");
+                       
                     }
                     else
                     {
                         command.Parameters.AddWithValue("@LastName", FirstName_add.Text);
                     }
 
-                    if (Gender_add_ComboBox.Text == "" && !check)
+                    if (Gender_add_ComboBox.Text == "" )
                     {
 
-                        Errorka.Text = ("Выберете пол");
-                        check = true;
+                        throw new Exception("Выберете пол");
+                       
                     }
                     else
                     {
@@ -160,27 +200,25 @@ namespace _1C_app
                             command.Parameters.AddWithValue("@Gender", 2);
                         }
                     }
-                    if (Birthday_add.Text == "" && !check)
+                    if (Birthday_add.Text == "" )
                     {
-                        Errorka.Text = ("Заполните поле даата рождения");
-                        check = true;
+                        throw new Exception("Заполните поле даата рождения");
+                       
                     }
+                    
                     else
                     {
                         command.Parameters.AddWithValue("@DateOfBirth", Birthday_add.Text);
                     }
-                    if (Country_add_ComboBox.Text == "" && !check)
+                    if (Country_add_ComboBox.Text == "" )
                     {
-                        Errorka.Text = ("Выберете страну");
-                        check = true;
+                        throw new Exception("Выберете страну");
+                       
                     }
                     else
                     {
                         command.Parameters.AddWithValue("@CountryName", Country_add_ComboBox.Text.Trim());
                     }
-
-
-
 
                     int number = command.ExecuteNonQuery();
                     MessageBox.Show($"Учетная запись создана:{number - 1}");
@@ -188,15 +226,9 @@ namespace _1C_app
                     MainWindow RegistrationUser = new MainWindow();
                     this.Close();
                     RegistrationUser.ShowDialog();
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("Ошибка при изменении данных: " + ex.Message);
-                }
-               
             }
         }
-       
+
         private void BackMenu()
         {
             MainWindow RegistrationUser = new MainWindow();
@@ -205,7 +237,7 @@ namespace _1C_app
         }
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
-            BackMenu();   
+            BackMenu();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -215,7 +247,14 @@ namespace _1C_app
 
         private void Button_registr_Click(object sender, RoutedEventArgs e)
         {
-            RegistrRunner();
+            try
+            {
+                RegistrRunner();
+            }
+            catch (Exception ex)
+            {
+                Errorka.Text = ex.Message;
+            }
         }
 
         private void Button_Otmena_Click(object sender, RoutedEventArgs e)

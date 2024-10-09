@@ -31,7 +31,7 @@
             <TextBox x:Name="LastName_add" HorizontalAlignment="Left" Margin="378,756,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="1244,400,0,0" TextWrapping="Wrap" Text="Пол:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
             <TextBlock HorizontalAlignment="Left" Margin="1035,494,0,0" TextWrapping="Wrap" Text="Дата рождения:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="Birthday_add" TextChanged="DateT_TextChanged" HorizontalAlignment="Left" Margin="1342,500,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="Birthday_add" MaxLength="10" TextChanged="DateT_TextChanged" HorizontalAlignment="Left" Margin="1342,500,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="1189,578,0,0" TextWrapping="Wrap" Text="Страна:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
             <ComboBox x:Name="Gender_add_ComboBox" HorizontalAlignment="Left" Margin="1342,412,0,0" VerticalAlignment="Top" Width="436" Height="53" FontSize="35"/>
             <ComboBox x:Name="Country_add_ComboBox" HorizontalAlignment="Left" Margin="1342,584,0,0" VerticalAlignment="Top" Width="470" Height="53" FontSize="35"/>
@@ -50,7 +50,7 @@
                 </Button.Resources>
             </Button>
             <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
-            <TextBlock x:Name="Errorka" HorizontalAlignment="Center" Margin="0,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="33" RenderTransformOrigin="0.485,0.185" Width="548" Foreground="#FFE42424" TextAlignment="Center"/>
+            <TextBlock x:Name="Errorka" HorizontalAlignment="Center" Margin="0,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="33" RenderTransformOrigin="0.485,0.185" Width="1052" Foreground="#FFE42424" TextAlignment="Center"/>
 
         </Grid>
     </Grid>

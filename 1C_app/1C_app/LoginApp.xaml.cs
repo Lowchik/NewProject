@@ -33,6 +33,7 @@ namespace _1C_app
             public static string Login { get; set; }
             public static string Password { get; set; }
         }
+       
         private void LoginUser()
         {
             string enteredPhoneNumber = Login_TextBox.Text;
@@ -52,7 +53,7 @@ namespace _1C_app
 
                     using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                     {
-                        string hashedEnteredPassword = HashPassword(enteredPassword);
+                        string hashedEnteredPassword = HashPassword.HashPass(enteredPassword);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -107,19 +108,7 @@ namespace _1C_app
             }
         }
 
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < hashedBytes.Length; i++)
-                {
-                    builder.Append(hashedBytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
+       
         private void ClouseWindow()
         {
             MainWindow LoginApp = new MainWindow();

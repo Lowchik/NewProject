@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HashPassword.cs" />
     <Compile Include="MenuAdministratora.xaml.cs">
       <DependentUpon>MenuAdministratora.xaml</DependentUpon>
     </Compile>
