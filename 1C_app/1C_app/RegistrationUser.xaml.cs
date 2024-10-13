@@ -24,7 +24,8 @@ namespace _1C_app
     /// </summary>
     public partial class RegistrationUser : Window
     {
-        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+        //string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+        string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
         public RegistrationUser()
         {
             InitializeComponent();
@@ -107,6 +108,17 @@ namespace _1C_app
 
             }
         }
+        private bool IsValidAge(string birthDateString, int minimumAge)
+        {
+            DateTime birthDate;
+            if (DateTime.TryParse(birthDateString, out birthDate))
+            {
+                int age = DateTime.Now.Year - birthDate.Year;
+                if (birthDate > DateTime.Now.AddYears(-age)) age--; 
+                return age >= minimumAge;
+            }
+            return false; 
+        }
 
         private void RegistrRunner()
         {
@@ -122,14 +134,11 @@ namespace _1C_app
                 connection.Open();
                     SqlCommand command = new SqlCommand(sqlQueryy, connection);
 
-                    if (Email_add.Text == "" )
+                 
+                    if (!Regex.IsMatch(Email_add.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
                     {
-                        throw new Exception("Введите коректно почту");
-                       
-                    }
-                    else if (!Regex.IsMatch(Email_add.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
-                    {
-                        throw new Exception ("Введите коректно почту");
+                    Email_add.Background = Brushes.DarkRed;
+                    throw new Exception ("Введите коректно почту");
                     }
                     else
                     {
@@ -139,54 +148,63 @@ namespace _1C_app
                         }
                         else
                         {
-                            command.Parameters.AddWithValue("@Email", Email_add.Text);
+                        Email_add.Background = Brushes.White;
+                        command.Parameters.AddWithValue("@Email", Email_add.Text);
                         }
                     }
 
                     if ((Password_add.Text == "" && rPassword_add.Text == "") )
                     {
-                        throw new Exception ("Поле Пароль не должно быть пустым");
+                    Password_add.Background = Brushes.DarkRed;
+                    throw new Exception ("Поле Пароль не должно быть пустым");
                        
                     }
                     else if (!Regex.IsMatch(Password_add.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^]).{6,}$"))
                     {
-                        throw new Exception("Введите коректно пароль");
+                    Password_add.Background = Brushes.DarkRed;
+                    throw new Exception("Введите коректно пароль");
                     }
                     else if (this.Password_add.Text != rPassword_add.Text)
                     {
-                        throw new Exception("Пароль не совпадает с указаным");
+                    Password_add.Background = Brushes.DarkRed;
+                    throw new Exception("Пароль не совпадает с указаным");
                     }
 
                     else
                     {
-                        command.Parameters.AddWithValue("@Password", HashPassword.HashPass(Password_add.Text));
+                    Password_add.Background = Brushes.White;
+                    command.Parameters.AddWithValue("@Password", HashPassword.HashPass(Password_add.Text));
 
                     }
                     if (FirstName_add.Text == "" )
                     {
-                        throw new Exception("Заполните поле Имя");
+                    FirstName_add.Background = Brushes.DarkRed;
+                    throw new Exception("Заполните поле Имя");
                        
                     }
                     
                     
                     else
                     {
-                        command.Parameters.AddWithValue("@FirstName", FirstName_add.Text);
+                    FirstName_add.Background = Brushes.White;
+                    command.Parameters.AddWithValue("@FirstName", FirstName_add.Text);
                     }
                     if (LastName_add.Text == "" )
                     {
-                        throw new Exception("Заполните поле Фамилия");
+                    LastName_add.Background = Brushes.DarkRed;
+                    throw new Exception("Заполните поле Фамилия");
                        
                     }
                     else
                     {
-                        command.Parameters.AddWithValue("@LastName", FirstName_add.Text);
+                    LastName_add.Background = Brushes.White;
+                    command.Parameters.AddWithValue("@LastName", LastName_add.Text);
                     }
 
                     if (Gender_add_ComboBox.Text == "" )
                     {
-
-                        throw new Exception("Выберете пол");
+                    
+                    throw new Exception("Выберете пол");
                        
                     }
                     else
@@ -200,17 +218,26 @@ namespace _1C_app
                             command.Parameters.AddWithValue("@Gender", 2);
                         }
                     }
-                    if (Birthday_add.Text == "" )
+                if (Birthday_add.Text == "")
+                {
+                    Birthday_add.Background = Brushes.DarkRed;
+                    throw new Exception("Заполните поле даты рождения");
+                }
+                else
+                {
+                    if (IsValidAge(Birthday_add.Text, 10))
                     {
-                        throw new Exception("Заполните поле даата рождения");
-                       
-                    }
-                    
-                    else
-                    {
+                        Birthday_add.Background = Brushes.White;
                         command.Parameters.AddWithValue("@DateOfBirth", Birthday_add.Text);
                     }
-                    if (Country_add_ComboBox.Text == "" )
+                    else
+                    {
+                        Birthday_add.Background = Brushes.DarkRed;
+                        throw new Exception("Возраст не может быть меньше 10 лет");
+                    }
+                }
+
+                if (Country_add_ComboBox.Text == "" )
                     {
                         throw new Exception("Выберете страну");
                        
