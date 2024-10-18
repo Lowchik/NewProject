@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +22,48 @@ namespace _1C_app
     /// </summary>
     public partial class MainWindow : Window
     {
+        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+        // string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
 
         public MainWindow()
         {
             InitializeComponent();
+            LoadComboBoxRunner();
             DiscoverEvent.Visibility = Visibility.Hidden;
             RunnerGrid.Visibility = Visibility.Hidden;
             BecomeSponsor.Visibility = Visibility.Hidden;
 
             
         }
+        private void LoadComboBoxRunner()
+        {
 
-        
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            if (connection.State == ConnectionState.Open)
+            {
+                string sqlExpression1 = $"Select [User].FirstName, [User].LastName From Runner " +
+                    $"INNER JOIN [User]  ON [Runner].Email = [User].Email " +
+                    $"Where RoleId = 'R' ";
+                SqlCommand command1 = new SqlCommand(sqlExpression1, connection);
+                SqlDataReader reader1 = command1.ExecuteReader();
+                if (reader1.HasRows)
+                {
+                    while (reader1.Read())
+                    {
+                        string fullName = $"{reader1.GetString(0)} {reader1.GetString(1)}";
+
+                        RunnerComboBox.Items.Add(fullName);
+                    }
+                    reader1.Close();
+                }
+
+            }
+            connection.Close();
+
+        }
+
 
         private void Button_Logint_Click(object sender, RoutedEventArgs e)
         {

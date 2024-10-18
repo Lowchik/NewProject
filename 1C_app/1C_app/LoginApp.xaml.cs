@@ -22,8 +22,8 @@ namespace _1C_app
     public partial class LoginApp : Window
     {
         
-       //   string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
-        string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
+       string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+       //string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
         public LoginApp()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace _1C_app
                     connection.Open();
 
                     
-                    string sqlQuery = $@"SELECT u.Password, r.RoleName FROM [User] u INNER JOIN [Role] r ON u.RoleId = r.RoleId WHERE u.Email = '{Global.Login}'";
+                    string sqlQuery = $"SELECT u.Password, r.RoleName FROM [User] u INNER JOIN [Role] r ON u.RoleId = r.RoleId WHERE u.Email = '{Global.Login}'";
 
                     using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                     {

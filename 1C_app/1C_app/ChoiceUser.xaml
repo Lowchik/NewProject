@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ChoiceUser" Height="1080" Width="1920"  WindowState="Maximized" WindowStyle = "None">
     <Grid>
-        <Grid x:Name="MenuRunnera">
+        <Grid x:Name="MenuRunnera" d:IsHidden="True">
             <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Exit" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Exit_Click">
                 <Button.Resources>
@@ -92,7 +92,7 @@
             </TextBlock>
             <Button Content="X" HorizontalAlignment="Left" Margin="1316,0,0,0" VerticalAlignment="Top" FontSize="40" Foreground="#FFFD0000" BorderBrush="{x:Null}" Background="{x:Null}" RenderTransformOrigin="0.109,0.507" Click="BattonClouse"/>
         </Grid>
-        <Grid x:Name="editing" d:IsHidden="True">
+        <Grid x:Name="editing">
             <Rectangle x:Name="rectangle_Копировать" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Exit_Копировать" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_ExitMenuRunner">
                 <Button.Resources>
@@ -113,21 +113,21 @@
             <TextBlock HorizontalAlignment="Center" Margin="0,176,0,0" TextWrapping="Wrap" Text="Редактирование профиля" VerticalAlignment="Top" FontSize="45"/>
             <TextBlock HorizontalAlignment="Left" Margin="361,318,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="45"/>
             <TextBlock HorizontalAlignment="Left" Margin="379,412,0,0" TextWrapping="Wrap" Text="Имя:" VerticalAlignment="Top" FontSize="45"/>
-            <TextBox HorizontalAlignment="Left" Margin="516,414,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="406" Height="58" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBox x:Name="Name_edit" HorizontalAlignment="Left" Margin="516,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406" Height="58" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
             <TextBlock HorizontalAlignment="Left" Margin="281,502,0,0" TextWrapping="Wrap" Text="Фамилия:" VerticalAlignment="Top" FontSize="45"/>
-            <TextBox HorizontalAlignment="Left" Margin="516,498,0,0" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top" Width="406" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBox x:Name="FirstName_edit" HorizontalAlignment="Left" Margin="516,498,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
             <TextBlock HorizontalAlignment="Left" Margin="385,590,0,0" TextWrapping="Wrap" Text="Пол:" VerticalAlignment="Top" FontSize="45"/>
             <TextBlock HorizontalAlignment="Left" Margin="150,685,0,0" TextWrapping="Wrap" Text="Дата рождения:" VerticalAlignment="Top" FontSize="45"/>
-            <TextBox HorizontalAlignment="Left" Margin="516,683,0,0" TextWrapping="Wrap" Text="Формат даты" VerticalAlignment="Top" Width="307" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBox x:Name="Date_edit"  MaxLength="10" HorizontalAlignment="Left" Margin="516,683,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
             <TextBlock HorizontalAlignment="Left" Margin="323,778,0,0" TextWrapping="Wrap" Text="Страна:" VerticalAlignment="Top" FontSize="45"/>
-            <ComboBox HorizontalAlignment="Left" Margin="516,590,0,0" VerticalAlignment="Top" Width="336" Height="60"/>
-            <ComboBox HorizontalAlignment="Left" Margin="516,778,0,0" VerticalAlignment="Top" Width="366" Height="60"/>
+            <ComboBox x:Name="Gender_edit" HorizontalAlignment="Left" Margin="516,590,0,0" VerticalAlignment="Top" Width="336" Height="60" FontSize="35"/>
+            <ComboBox x:Name="Country_edit" HorizontalAlignment="Left" Margin="516,778,0,0" VerticalAlignment="Top" Width="366" Height="60" FontSize="35"/>
             <TextBlock HorizontalAlignment="Left" Margin="1389,318,0,0" TextWrapping="Wrap" Text="Смена пароля" VerticalAlignment="Top" FontSize="45"/>
             <TextBlock HorizontalAlignment="Left" Margin="1254,400,0,0" TextWrapping="Wrap" Text="Оставьте эти поля, незаполненными, если вы не хотите изменять пороль." VerticalAlignment="Top" FontSize="30" Width="563" Foreground="#FF8A8A8A"/>
             <TextBlock HorizontalAlignment="Left" Margin="1202,535,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top" FontSize="45"/>
-            <TextBox HorizontalAlignment="Left" Margin="1389,536,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="479" Height="58" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBox x:Name="Password_edit" HorizontalAlignment="Left" Margin="1389,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479" Height="58" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
             <TextBlock HorizontalAlignment="Left" Margin="1042,624,0,0" TextWrapping="Wrap" Text="Повтор пароля:" VerticalAlignment="Top" FontSize="45"/>
-            <TextBox HorizontalAlignment="Left" Margin="1389,620,0,0" TextWrapping="Wrap" Text="Re-enter Password" VerticalAlignment="Top" Width="479" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
+            <TextBox x:Name="dPassword_edit" HorizontalAlignment="Left" Margin="1389,620,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479" Height="64" FontSize="35" Foreground="#FFB5B5B5" FontStyle="Italic"/>
             <Button
                 Width="219" VerticalAlignment="Top" x:Name="Button_Save" Margin="741,888,0,0" Height="72" HorizontalAlignment="Left" FontSize="35" Content="Сохранить" Click="Button_SaveProfile_Click">
                 <Button.Resources
@@ -154,6 +154,8 @@
                 Fill="Gray" Margin="0,978,0,0" Stroke="Black"/>
             <TextBlock
                 Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
+            <TextBox x:Name="Email_check" HorizontalAlignment="Left" Margin="516,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406" Height="58" FontSize="35" FontStyle="Italic" BorderBrush="{x:Null}" IsReadOnly="True" IsEnabled="False"/>
+            <TextBlock x:Name="Errorka" HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="33" RenderTransformOrigin="0.485,0.185" Width="1052" Foreground="#FFE42424" TextAlignment="Center"/>
         </Grid>
     </Grid>
 </Window>

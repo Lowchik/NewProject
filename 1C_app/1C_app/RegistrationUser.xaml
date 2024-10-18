@@ -20,7 +20,7 @@
             <TextBlock HorizontalAlignment="Center" Margin="0,138,0,0" TextWrapping="Wrap" Text="Регистрация бегуна" VerticalAlignment="Top" FontSize="50" Foreground="#FF989898" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,215,0,0" TextWrapping="Wrap" Text="Пожалуйста заполните всю информацию, чтобы зарегистрироваться в качестве бегуна" VerticalAlignment="Top" FontSize="30" Width="1164" TextAlignment="Center"/>
             <TextBlock HorizontalAlignment="Left" Margin="250,406,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
-            <TextBox x:Name="Email_add" HorizontalAlignment="Left" Margin="378,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="516" Height="53" FontSize="35" Foreground="#FFADADAD"/>
+            <TextBox x:Name="Email_add" HorizontalAlignment="Left" Margin="378,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="516" Height="53" FontSize="35" Foreground="Black"/>
             <TextBlock HorizontalAlignment="Left" Margin="207,0,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Center" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>
             <TextBox x:Name="Password_add" HorizontalAlignment="Left" Margin="378,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="436" Height="53" FontSize="35" Foreground="#FFADADAD"/>
             <TextBlock HorizontalAlignment="Left" Margin="13,584,0,0" TextWrapping="Wrap" Text="Повторите пароль:" VerticalAlignment="Top" FontSize="40" Height="65" RenderTransformOrigin="0.485,0.185"/>

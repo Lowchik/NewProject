@@ -9,7 +9,7 @@
         Title="MainWindow"  Height="1080" Width="1920" WindowState="Maximized" WindowStyle = "None">
     <Grid>
         <Grid
-    Width="1920" VerticalAlignment="Top" x:Name="GlavniyGrid" Margin="0,-2,0,0" Height="340" HorizontalAlignment="Center">
+    Width="1920" VerticalAlignment="Top" x:Name="GlavniyGrid" Margin="0,-2,0,0" Height="340" HorizontalAlignment="Center" d:IsHidden="True">
             <Rectangle
     HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="1920" Stroke="Black" x:Name="rectangleN1" Fill="Gray"/>
             <TextBlock
@@ -18,7 +18,7 @@
     Width="360" VerticalAlignment="Top" Text="Москва, Россия вторник 10 сентября 2024" TextWrapping="Wrap" Margin="0,220,0,0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
             <Button x:Name="Clouse_Win" Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
-        <Grid x:Name="ButtonGrid">
+        <Grid x:Name="ButtonGrid" d:IsHidden="True">
             <Button
     Width="850" VerticalAlignment="Top" x:Name="Button_SponserRunner" Margin="0,560,0,0" Height="174" HorizontalAlignment="Center" FontSize="50" Content="Я хочу стать спонсором бегуна" Click="Button_SponserRunner_Click">
                 <Button.Resources
@@ -83,7 +83,7 @@
             </Button>
             <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
-        <Grid x:Name="LoginGrid">
+        <Grid x:Name="LoginGrid" d:IsHidden="True">
             <Button
                 Width="196" VerticalAlignment="Top" x:Name="Button_Logint" Margin="1696,865,0,0" Height="73" HorizontalAlignment="Left" FontSize="30" Content="Login" Click="Button_Logint_Click">
                 <Button.Resources
@@ -167,7 +167,7 @@
             </Button>
             <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
         </Grid>
-        <Grid x:Name="BecomeSponsor" d:IsHidden="True">
+        <Grid x:Name="BecomeSponsor">
             <Rectangle x:Name="rectangleN1_Копировать1" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Canceled" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Cenceled_Click">
                 <Button.Resources>
@@ -193,7 +193,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="202,808,0,0" TextWrapping="Wrap" Text="CVC:" VerticalAlignment="Top" FontSize="30" Width="82"/>
             <TextBox HorizontalAlignment="Left" Margin="299,808,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Height="40" FontSize="25"/>
             <TextBox HorizontalAlignment="Left" Margin="408,738,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" Height="40" FontSize="25"/>
-            <ComboBox HorizontalAlignment="Left" Margin="299,0,0,0" VerticalAlignment="Center" Width="441" Height="40"/>
+            <ComboBox x:Name="RunnerComboBox" HorizontalAlignment="Left" Margin="299,0,0,0" VerticalAlignment="Center" Width="441" Height="40" FontSize="25"/>
             <TextBlock HorizontalAlignment="Left" Margin="1340,428,0,0" TextWrapping="Wrap" Text="Фонд Кошек" VerticalAlignment="Top" FontSize="30" Foreground="Black"/>
             <Image Margin="1574,423,312,596" Source="/report_4517968.png" Stretch="Fill" RenderTransformOrigin="-1.265,0.056"/>
             <TextBlock HorizontalAlignment="Left" Margin="1248,512,0,0" TextWrapping="Wrap" Text="Сумма пожертвования" VerticalAlignment="Top" FontSize="45" Foreground="#FF5D5D5D"/>

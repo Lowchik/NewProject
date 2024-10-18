@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using static _1C_app.LoginApp;
+using System.Net.NetworkInformation;
 
 namespace _1C_app
 {
@@ -24,13 +25,14 @@ namespace _1C_app
     /// </summary>
     public partial class RegistrationUser : Window
     {
-        //string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
-        string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
+       string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
+       // string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
         public RegistrationUser()
         {
             InitializeComponent();
             LoadComboBoxData();
             LoadComboBoxGender();
+
         }
         private void LoadComboBoxData()
         {
@@ -57,6 +59,7 @@ namespace _1C_app
             }
             connection.Close();
         }
+
         private void LoadComboBoxGender()
         {
             Gender_add_ComboBox.ItemsSource = new List<string> { "Мужской", "Женский" };
@@ -108,17 +111,7 @@ namespace _1C_app
 
             }
         }
-        private bool IsValidAge(string birthDateString, int minimumAge)
-        {
-            DateTime birthDate;
-            if (DateTime.TryParse(birthDateString, out birthDate))
-            {
-                int age = DateTime.Now.Year - birthDate.Year;
-                if (birthDate > DateTime.Now.AddYears(-age)) age--; 
-                return age >= minimumAge;
-            }
-            return false; 
-        }
+        
 
         private void RegistrRunner()
         {
@@ -225,7 +218,7 @@ namespace _1C_app
                 }
                 else
                 {
-                    if (IsValidAge(Birthday_add.Text, 10))
+                    if (dateFormat.IsValidAge(Birthday_add.Text, 10))
                     {
                         Birthday_add.Background = Brushes.White;
                         command.Parameters.AddWithValue("@DateOfBirth", Birthday_add.Text);
