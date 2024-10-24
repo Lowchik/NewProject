@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using static _1C_app.LoginApp;
 
 namespace _1C_app
@@ -12,7 +13,11 @@ namespace _1C_app
     /// </summary>
     public partial class ChoiceUser : Window
     {
-       
+        private int sum;
+        private int ruddiosum;
+        private int vsoncsum;
+
+
         string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
         // string connectionString = "Server=.\\SQLEXPRESS;Database=DSA;Trusted_Connection=True;";
         public ChoiceUser()
@@ -28,8 +33,10 @@ namespace _1C_app
             }
             Contact.Visibility = Visibility.Hidden;
             editing.Visibility = Visibility.Hidden;
+            RegistrMarathom.Visibility = Visibility.Hidden;
             LoadComboBoxData();
             LoadComboBoxGender();
+            LoadComboBoxSponserVsnos();
         }
         private void LoadComboBoxData()
         {
@@ -60,6 +67,31 @@ namespace _1C_app
         {
             Gender_edit.Items.Add("Мужской");
             Gender_edit.Items.Add("Женщина");
+        }
+        private void LoadComboBoxSponserVsnos()
+        {
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            if (connection.State == ConnectionState.Open)
+            {
+                string sqlExpression1 = $"select ChatityName,CharityLogo from Charity";
+                SqlCommand command1 = new SqlCommand(sqlExpression1, connection);
+                SqlDataReader reader1 = command1.ExecuteReader();
+                if (reader1.HasRows)
+                {
+                    while (reader1.Read())
+                    {
+                        string fullName = $"{reader1.GetString(0)} {reader1.GetString(1)}";
+
+                        ComboBoxDonate.Items.Add(fullName);
+                    }
+                    reader1.Close();
+                }
+
+            }
+            connection.Close();
         }
         private void ViewdannieTB()
         {
@@ -131,7 +163,7 @@ namespace _1C_app
                 "SELECT @country = CountryCode FROM [Country] WHERE CountryName = @CountryName; " +
                 "UPDATE [User] SET [Email] = @Email, [FirstName] = @FirstName,[LastName] = @LastName,[RoleId] = N'R' WHERE [Email] = @Emailll; " +
                 "UPDATE [Runner] SET [Email] = @Emailll,[Gender] = @Gender,[DateOfBirth] = @DateOfBirth, [CountryCode] = @country WHERE [Email] = @Emailll; ";
-            }         
+            }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
@@ -214,7 +246,7 @@ namespace _1C_app
                 {
                     command.Parameters.AddWithValue("@CountryName", Country_edit.Text.Trim());
                 }
-               
+
 
                 int number = command.ExecuteNonQuery();
                 MessageBox.Show($"Данные успешно изменены :{number - 1}");
@@ -222,6 +254,7 @@ namespace _1C_app
 
             }
         }
+
         private void Button_Loguot_Click(object sender, RoutedEventArgs e)
         {
             MainWindow ChoiceUser = new MainWindow();
@@ -281,6 +314,114 @@ namespace _1C_app
         private void Button_ExitMenuRunner(object sender, RoutedEventArgs e)
         {
             editing.Visibility = System.Windows.Visibility.Hidden;
+            MenuRunnera.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrMarathom.Visibility = Visibility.Visible;
+            MenuRunnera.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_ExitMenuRunners(object sender, RoutedEventArgs e)
+        {
+            RegistrMarathom.Visibility = System.Windows.Visibility.Hidden;
+            MenuRunnera.Visibility = System.Windows.Visibility.Visible;
+        }
+        private void ChechDonate(int number)
+        {
+            sum += number;
+            Summa.Text = (sum + ruddiosum + vsoncsum).ToString();
+        }
+        private void CheckFullMarathon_Checked(object sender, RoutedEventArgs e)
+        {
+            ChechDonate(145);
+        }
+
+        private void CheckHalfMarathon_Checked(object sender, RoutedEventArgs e)
+        {
+            ChechDonate(75);
+        }
+
+        private void CheckLittleMarathon_Checked(object sender, RoutedEventArgs e)
+        {
+            ChechDonate(20);
+        }
+
+        private void CheckFullMarathon_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ChechDonate(-145);
+        }
+
+        private void CheckHalfMarathon_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ChechDonate(-75);
+        }
+
+        private void CheckLittleMarathon_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ChechDonate(-20);
+        }
+
+        private void ZeroA_Checked(object sender, RoutedEventArgs e)
+        {
+            ruddiosum = 0;
+            ChechDonate(0);
+        }
+
+        private void twentyB_Checked(object sender, RoutedEventArgs e)
+        {
+            ruddiosum = 20;
+            ChechDonate(0);
+        }
+
+        private void FourC_Checked(object sender, RoutedEventArgs e)
+        {
+            ruddiosum = 45;
+            ChechDonate(0);
+        }
+
+        private void SumDonateTB_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            try
+            {
+                vsoncsum = Convert.ToInt32(SumDonateTB.Text);
+            }
+            catch
+            {
+
+            }
+            if (SumDonateTB.Text.Length == 0)
+            {
+                SumDonateTB.Text = "0"; 
+            }
+            if (SumDonateTB.Text.Length > 1 && SumDonateTB.Text[0] == '0')
+            {
+                SumDonateTB.Text =  SumDonateTB.Text.Remove(0);
+            }
+            ChechDonate(0);
+
+        }
+
+        private void SumDonateTB_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void Button_RegistrMarathon(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Otmena(object sender, RoutedEventArgs e)
+        {
+            RegistrMarathom.Visibility = System.Windows.Visibility.Hidden;
             MenuRunnera.Visibility = System.Windows.Visibility.Visible;
         }
     }

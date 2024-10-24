@@ -131,5 +131,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Reruses\image\diabetes-brazil-logo.png" />
+    <Resource Include="Reruses\image\heart-health-sao-paulo-logo.png" />
+    <Resource Include="Reruses\image\human-rights-centre-logo.png" />
+    <Resource Include="Reruses\image\oxfam-international-logo.png" />
+    <Resource Include="Reruses\image\querstadtein-logo.png" />
+    <Resource Include="Reruses\image\save-the-children-fund-logo.png" />
+    <Resource Include="Reruses\image\stay-pumped-logo.png" />
+    <Resource Include="Reruses\image\the-red-cross-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Reruses\image\arise-logo.png" />
+    <Resource Include="Reruses\image\aves-do-brazil-logo.png" />
+    <Resource Include="Reruses\image\upbeat-logo.png" />
+    <Resource Include="Reruses\image\wwsm-rescue-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Reruses\image\clara-santos-oliveira-institute-logo.png" />
+    <Resource Include="Reruses\image\conquer-cancer-brazil.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

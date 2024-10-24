@@ -51,7 +51,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Content="Регистарция на&#xA;марафон" HorizontalAlignment="Left" Margin="204,321,0,0" VerticalAlignment="Top" Width="663" Height="141" FontStyle="Italic" FontSize="35">
+            <Button Content="Регистарция на&#xA;марафон" HorizontalAlignment="Left" Margin="204,321,0,0" VerticalAlignment="Top" Width="663" Height="141" FontStyle="Italic" FontSize="35" Click="Button_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="25"/>
@@ -92,7 +92,7 @@
             </TextBlock>
             <Button Content="X" HorizontalAlignment="Left" Margin="1316,0,0,0" VerticalAlignment="Top" FontSize="40" Foreground="#FFFD0000" BorderBrush="{x:Null}" Background="{x:Null}" RenderTransformOrigin="0.109,0.507" Click="BattonClouse"/>
         </Grid>
-        <Grid x:Name="editing">
+        <Grid x:Name="editing" d:IsHidden="True">
             <Rectangle x:Name="rectangle_Копировать" HorizontalAlignment="Center" Height="138" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
             <Button x:Name="Button_Exit_Копировать" Content="Назад" HorizontalAlignment="Left" Margin="39,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_ExitMenuRunner">
                 <Button.Resources>
@@ -156,6 +156,87 @@
                 Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
             <TextBox x:Name="Email_check" HorizontalAlignment="Left" Margin="516,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406" Height="58" FontSize="35" FontStyle="Italic" BorderBrush="{x:Null}" IsReadOnly="True" IsEnabled="False"/>
             <TextBlock x:Name="Errorka" HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="33" RenderTransformOrigin="0.485,0.185" Width="1052" Foreground="#FFE42424" TextAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="RegistrMarathom">
+            <Rectangle x:Name="rectangle_Копировать1" HorizontalAlignment="Center" Height="115" Stroke="Black" VerticalAlignment="Top" Width="1920" Fill="Gray"/>
+            <TextBlock x:Name="Name_1C1_Копировать1" HorizontalAlignment="Left" Margin="237,22,0,0" TextWrapping="Wrap" Text="Marathon skills 2016" VerticalAlignment="Top" FontSize="70" Foreground="White" FontWeight="Bold"/>
+            <Button x:Name="Loguot_Копировать1" Content="Loguot" HorizontalAlignment="Left" Margin="1704,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_Loguot_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="X" HorizontalAlignment="Left" Margin="1885,-3,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="35" Height="44" Click="Clouse_Window" BorderBrush="{x:Null}"/>
+            <Rectangle
+                Fill="Gray" Margin="0,978,0,0" Stroke="Black"/>
+            <TextBlock
+                Width="1006" VerticalAlignment="Top" Text="18 дней 8 часов и 17 минут до старта марафона!" TextWrapping="Wrap" Margin="0,988,0,0" Height="76" HorizontalAlignment="Center" FontSize="45" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" Text="Ристрация на марафон" VerticalAlignment="Top" FontSize="50" RenderTransformOrigin="0.5,-0.135"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,192,0,0" TextWrapping="Wrap" Text="Пожалуйста заполните всю информацию, чтобы зарегистрироваться на Skills Marathon 2016 проводимом в Москве. Russia. С Вами свяжутся после регистрации для уточнения оплаты и другой информации." VerticalAlignment="Top" FontSize="30" RenderTransformOrigin="0.5,-0.135" Width="1120" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Margin="183,354,0,0" TextWrapping="Wrap" Text="Вид марафона" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" TextAlignment="Center" Width="396" Foreground="#FF7F7F7F"/>
+            <CheckBox x:Name="CheckFullMarathon" Content="42km Полный марафон(145$)" HorizontalAlignment="Left" Margin="39,410,0,0" VerticalAlignment="Top" Height="15" Width="159" FontSize="10" Grid.Column="0" Checked="CheckFullMarathon_Checked" Unchecked="CheckFullMarathon_Unchecked" >
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="4" ScaleY="4"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox x:Name="CheckHalfMarathon" Content="21km Полумарафон(75$)" HorizontalAlignment="Left" Margin="39,475,0,0" VerticalAlignment="Top" Height="15" Width="159" FontSize="10" Grid.Column="0" Checked="CheckHalfMarathon_Checked" Unchecked="CheckHalfMarathon_Unchecked" >
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="4" ScaleY="4"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox x:Name="CheckLittleMarathon" Content="5km Малая дистанция(20$)" HorizontalAlignment="Left" Margin="39,540,0,0" VerticalAlignment="Top" Height="15" Width="159" FontSize="10" Grid.Column="0" Checked="CheckLittleMarathon_Checked" Unchecked="CheckLittleMarathon_Unchecked" >
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="4" ScaleY="4"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <TextBlock HorizontalAlignment="Left" Margin="183,605,0,0" TextWrapping="Wrap" Text="Детали спонсорства" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" TextAlignment="Center" Width="396" Foreground="#FF7F7F7F"/>
+            <TextBlock HorizontalAlignment="Left" Margin="191,695,0,0" TextWrapping="Wrap" Text="Взнос:" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" Width="123" Foreground="Black"/>
+            <TextBlock HorizontalAlignment="Left" Margin="39,779,0,0" TextWrapping="Wrap" Text="Сумма взноса:" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" Width="275" Foreground="Black"/>
+            <ComboBox x:Name="ComboBoxDonate" HorizontalAlignment="Left" Margin="331,706,0,0" VerticalAlignment="Top" Width="275" Height="42"/>
+            <TextBox x:Name="SumDonateTB" HorizontalAlignment="Left" Margin="331,797,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" Height="35" FontSize="25" TextChanged="SumDonateTB_TextChanged" PreviewTextInput="SumDonateTB_PreviewTextInput"/>
+            <RadioButton x:Name="ZeroA"  HorizontalAlignment="Left" Margin="1138,433,0,0" VerticalAlignment="Top" FontSize="10" Width="235" Checked="ZeroA_Checked">
+                <RadioButton.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3"/>
+                </RadioButton.LayoutTransform>
+                <TextBlock x:Name="Zero" TextWrapping="Wrap" FontSize="8" Width="162"><Bold><Run Text="Вариант А (0$): "/></Bold><Run Text="Номер бегуна + RFID браслет."/></TextBlock>
+            </RadioButton>
+            <RadioButton x:Name="twentyB"  HorizontalAlignment="Left" Margin="1138,519,0,0" VerticalAlignment="Top" FontSize="10" Width="235" Checked="twentyB_Checked">
+                <RadioButton.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3"/>
+                </RadioButton.LayoutTransform>
+                <TextBlock x:Name="twenty" TextWrapping="Wrap" FontSize="8" Width="162"><Bold><Run Text="Вариант А (20$): "/></Bold><Run Text="Номер бегуна + RFID браслет."/></TextBlock>
+            </RadioButton>
+            <RadioButton x:Name="FourC" HorizontalAlignment="Left" Margin="1138,605,0,0" VerticalAlignment="Top" FontSize="10" Width="216" Checked="FourC_Checked">
+                <RadioButton.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3"/>
+                </RadioButton.LayoutTransform>
+                <TextBlock x:Name="Four" TextWrapping="Wrap" FontSize="8" Width="162"><Bold><Run Text="Вариант C (45$): "/></Bold><Run Text="Вариант В + футболка + сувенирный браслет."/></TextBlock>
+            </RadioButton>
+            <TextBlock HorizontalAlignment="Left" Margin="1138,354,0,0" TextWrapping="Wrap" Text="Варианты комплектов" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" TextAlignment="Center" Width="483" Foreground="#FF7F7F7F"/>
+            <TextBlock HorizontalAlignment="Left" Margin="1200,684,0,0" TextWrapping="Wrap" Text="Регастрационный взнос" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" TextAlignment="Center" Width="483" Foreground="#FF7F7F7F"/>
+            <TextBlock x:Name="Summa" HorizontalAlignment="Left" Margin="1220,771,0,0" TextWrapping="Wrap" Text="0$" VerticalAlignment="Top" FontSize="100" RenderTransformOrigin="0.5,-0.135" TextAlignment="Center" Width="484" Foreground="#FF7F7F7F"/>
+            <Button x:Name="B" Content="Назад" HorizontalAlignment="Left" Margin="12,34,0,0" VerticalAlignment="Top" Height="70" Width="164" FontSize="35" RenderTransformOrigin="0.537,1.419" Click="Button_ExitMenuRunners">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="RegistrationMarathon" Content="Регистрация" HorizontalAlignment="Left" Margin="237,861,0,0" VerticalAlignment="Top" Height="64" Width="231" FontSize="25" RenderTransformOrigin="0.537,1.419" Click="Button_RegistrMarathon">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Otmena" Content="Отмена" HorizontalAlignment="Left" Margin="501,862,0,0" VerticalAlignment="Top" Height="64" Width="174" FontSize="25" RenderTransformOrigin="0.537,1.419" Click="Button_Otmena">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
     </Grid>
 </Window>

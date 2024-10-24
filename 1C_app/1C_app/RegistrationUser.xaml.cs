@@ -286,5 +286,10 @@ namespace _1C_app
         {
             this.Close();
         }
+
+        private void Country_add_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
