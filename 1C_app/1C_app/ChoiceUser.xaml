@@ -193,7 +193,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="183,605,0,0" TextWrapping="Wrap" Text="Детали спонсорства" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" TextAlignment="Center" Width="396" Foreground="#FF7F7F7F"/>
             <TextBlock HorizontalAlignment="Left" Margin="191,695,0,0" TextWrapping="Wrap" Text="Взнос:" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" Width="123" Foreground="Black"/>
             <TextBlock HorizontalAlignment="Left" Margin="39,779,0,0" TextWrapping="Wrap" Text="Сумма взноса:" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.5,-0.135" Width="275" Foreground="Black"/>
-            <ComboBox x:Name="ComboBoxDonate" HorizontalAlignment="Left" Margin="331,706,0,0" VerticalAlignment="Top" Width="275" Height="42"/>
+            <ComboBox x:Name="ComboBoxDonate" HorizontalAlignment="Left" Margin="331,706,0,0" VerticalAlignment="Top" Width="275" Height="42" FontSize="25"/>
             <TextBox x:Name="SumDonateTB" HorizontalAlignment="Left" Margin="331,797,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" Height="35" FontSize="25" TextChanged="SumDonateTB_TextChanged" PreviewTextInput="SumDonateTB_PreviewTextInput"/>
             <RadioButton x:Name="ZeroA"  HorizontalAlignment="Left" Margin="1138,433,0,0" VerticalAlignment="Top" FontSize="10" Width="235" Checked="ZeroA_Checked">
                 <RadioButton.LayoutTransform>
@@ -205,7 +205,7 @@
                 <RadioButton.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3"/>
                 </RadioButton.LayoutTransform>
-                <TextBlock x:Name="twenty" TextWrapping="Wrap" FontSize="8" Width="162"><Bold><Run Text="Вариант А (20$): "/></Bold><Run Text="Номер бегуна + RFID браслет."/></TextBlock>
+                <TextBlock x:Name="twenty" TextWrapping="Wrap" FontSize="8" Width="162"><Bold><Run Text="Вариант А (20$): "/></Bold><Run Text="Вариант А + бейсболка + бутылка вода."/></TextBlock>
             </RadioButton>
             <RadioButton x:Name="FourC" HorizontalAlignment="Left" Margin="1138,605,0,0" VerticalAlignment="Top" FontSize="10" Width="216" Checked="FourC_Checked">
                 <RadioButton.LayoutTransform>
@@ -237,6 +237,19 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button x:Name="infoCompany" Content="?" HorizontalAlignment="Left" Margin="624,706,0,0" VerticalAlignment="Top" Height="42" Width="51" FontSize="25" RenderTransformOrigin="0.537,1.419" Click="infoCompany_Click" BorderBrush="#FFFD0000" Foreground="Red" Background="{x:Null}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Grid x:Name="InfaCompany" Margin="695,366,400,176" d:IsHidden="True">
+                <Rectangle Stroke="Black" Margin="10,10,10,10" Fill="White"/>
+                <Button x:Name="CloseInfo" Content="X" HorizontalAlignment="Left" Margin="779,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Width="36" Click="CloseInfo_Click" FontSize="35"/>
+                <TextBlock x:Name="InfoCompany" HorizontalAlignment="Left" Margin="22,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="408" Width="793" FontSize="20"/>
+                <Image x:Name="LogoCompany" HorizontalAlignment="Left" Height="76" Margin="22,20,0,0" VerticalAlignment="Top" Width="146"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

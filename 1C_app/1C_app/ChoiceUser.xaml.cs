@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO.Ports;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using static _1C_app.LoginApp;
 
 namespace _1C_app
@@ -16,6 +20,7 @@ namespace _1C_app
         private int sum;
         private int ruddiosum;
         private int vsoncsum;
+        private int SelectedKit = 0;
 
 
         string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=DSA;Trusted_Connection=True;";
@@ -34,6 +39,7 @@ namespace _1C_app
             Contact.Visibility = Visibility.Hidden;
             editing.Visibility = Visibility.Hidden;
             RegistrMarathom.Visibility = Visibility.Hidden;
+            InfaCompany.Visibility = Visibility.Hidden; 
             LoadComboBoxData();
             LoadComboBoxGender();
             LoadComboBoxSponserVsnos();
@@ -76,15 +82,15 @@ namespace _1C_app
 
             if (connection.State == ConnectionState.Open)
             {
-                string sqlExpression1 = $"select ChatityName,CharityLogo from Charity";
+                string sqlExpression1 = $"select ChatityName from Charity";
                 SqlCommand command1 = new SqlCommand(sqlExpression1, connection);
                 SqlDataReader reader1 = command1.ExecuteReader();
                 if (reader1.HasRows)
                 {
                     while (reader1.Read())
                     {
-                        string fullName = $"{reader1.GetString(0)} {reader1.GetString(1)}";
-
+                        string fullName = $"{reader1.GetString(0).Trim()}";
+                       
                         ComboBoxDonate.Items.Add(fullName);
                     }
                     reader1.Close();
@@ -254,6 +260,105 @@ namespace _1C_app
 
             }
         }
+        private void ShowCharity()
+        {
+
+                string sqlQuery = $"SELECT CharityDescription From Charity  Where ChatityName = '{ComboBoxDonate.Text}'";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    try
+                    {
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            InfoCompany.Text = reader[0].ToString();
+                        }
+
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+        }
+        private void ImageCompany()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlExpression = $"SELECT CharityLogo From Charity Where ChatityName = '{ComboBoxDonate.Text}'";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        LogoCompany.Source = new BitmapImage(new Uri($"/Reruses/Image/{reader.GetString(0).Trim()}.png", UriKind.Relative));
+                    }
+                }
+               
+            }
+        }
+        private int CharityGetID()
+        {
+           
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            if (connection.State == ConnectionState.Open)
+            {
+                string sqlQueryy = $"Select CharityId From Charity Where ChatityName = '{ComboBoxDonate.Text}'";
+                SqlCommand command1 = new SqlCommand(sqlQueryy, connection);
+                SqlDataReader reader1 = command1.ExecuteReader();
+               
+                    while (reader1.Read())
+                    {
+                        return reader1.GetInt32(0);
+                    }
+                    reader1.Close();
+                
+                
+            }
+            connection.Close();
+            return 0;
+
+
+
+        }
+        private void RegistRunnerOnMarathon()
+        {
+            string sqlQueryy = "DECLARE @IdRunner int =  (Select Runner.RunnerId from Runner where Runner.Email = @Email )" +
+                "INSERT INTO [Regisrtation] ([RegistrationId], [RannerId], [RegistrationDateTime], [RaceKitOption], [RegistrationStatus],[Cost],[Charity]) " +
+                "VALUES ((SELECT ISNULL(MAX(RegistrationId), 0) + 1 FROM [Regisrtation]), @IdRunner, @RegistrationDateTime, @RaceKitOption, @RegistrationStatus,@Cost,@Charity)";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlQueryy, connection);
+
+                    command.Parameters.AddWithValue("@Email", Email_check.Text.Trim());
+
+                    command.Parameters.AddWithValue("@RegistrationDateTime", DateTime.Now);
+                    command.Parameters.AddWithValue("@RaceKitOption", SelectedKit);
+                    command.Parameters.AddWithValue("@RegistrationStatus", 1);
+                    command.Parameters.AddWithValue("@Cost", Summa.Text);
+                    command.Parameters.AddWithValue("@Charity", CharityGetID());
+                    int number = command.ExecuteNonQuery();
+                    MessageBox.Show("успех");
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private void Button_Loguot_Click(object sender, RoutedEventArgs e)
         {
@@ -365,18 +470,21 @@ namespace _1C_app
 
         private void ZeroA_Checked(object sender, RoutedEventArgs e)
         {
+            SelectedKit = 0;
             ruddiosum = 0;
             ChechDonate(0);
         }
 
         private void twentyB_Checked(object sender, RoutedEventArgs e)
         {
+            SelectedKit = 1;
             ruddiosum = 20;
             ChechDonate(0);
         }
 
         private void FourC_Checked(object sender, RoutedEventArgs e)
         {
+            SelectedKit = 2;
             ruddiosum = 45;
             ChechDonate(0);
         }
@@ -416,13 +524,25 @@ namespace _1C_app
 
         private void Button_RegistrMarathon(object sender, RoutedEventArgs e)
         {
-
+            RegistRunnerOnMarathon();
         }
 
         private void Button_Otmena(object sender, RoutedEventArgs e)
         {
             RegistrMarathom.Visibility = System.Windows.Visibility.Hidden;
             MenuRunnera.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void infoCompany_Click(object sender, RoutedEventArgs e)
+        {
+            InfaCompany.Visibility = System.Windows.Visibility.Visible;
+            ShowCharity();
+            ImageCompany();
+        }        
+
+        private void CloseInfo_Click(object sender, RoutedEventArgs e)
+        {
+            InfaCompany.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

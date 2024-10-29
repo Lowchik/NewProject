@@ -7,7 +7,11 @@
       "RelativeMoniker": "D:0:0:{DC535155-4175-4543-9980-A4CFA900AC28}|1C_app\\1C_app.csproj|solutionrelative:1c_app\\choiceuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC535155-4175-4543-9980-A4CFA900AC28}|1C_app\\1C_app.csproj|c:\\users\\nikitinnm\\desktop\\newproject\\1c_app\\1c_app\\choiceuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{DC535155-4175-4543-9980-A4CFA900AC28}|1C_app\\1C_app.csproj|c:\\users\\nikitinnm\\desktop\\newproject\\1c_app\\1c_app\\registrationuser.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{DC535155-4175-4543-9980-A4CFA900AC28}|1C_app\\1C_app.csproj|solutionrelative:1c_app\\registrationuser.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC535155-4175-4543-9980-A4CFA900AC28}|1C_app\\1C_app.csproj|C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1c_app\\choiceuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{DC535155-4175-4543-9980-A4CFA900AC28}|1C_app\\1C_app.csproj|solutionrelative:1c_app\\choiceuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -23,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ChoiceUser.xaml",
-              "DocumentMoniker": "C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1C_app\\ChoiceUser.xaml",
-              "RelativeDocumentMoniker": "1C_app\\ChoiceUser.xaml",
-              "ToolTip": "C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1C_app\\ChoiceUser.xaml",
-              "RelativeToolTip": "1C_app\\ChoiceUser.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-18T07:39:34.085Z",
-              "IsPinned": true,
+              "Title": "RegistrationUser.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1C_app\\RegistrationUser.xaml.cs",
+              "RelativeDocumentMoniker": "1C_app\\RegistrationUser.xaml.cs",
+              "ToolTip": "C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1C_app\\RegistrationUser.xaml.cs",
+              "RelativeToolTip": "1C_app\\RegistrationUser.xaml.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAmwPIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T10:38:58.898Z",
               "EditorCaption": ""
             },
             {
@@ -41,9 +45,21 @@
               "RelativeDocumentMoniker": "1C_app\\ChoiceUser.xaml.cs",
               "ToolTip": "C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1C_app\\ChoiceUser.xaml.cs*",
               "RelativeToolTip": "1C_app\\ChoiceUser.xaml.cs*",
-              "ViewState": "AgIAACUAAAAAAAAAAAAgwFUAAABXAAAAAAAAAA==",
+              "ViewState": "AgIAAAQBAAAAAAAAAAAcwEIBAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-24T08:05:44.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChoiceUser.xaml",
+              "DocumentMoniker": "C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1C_app\\ChoiceUser.xaml",
+              "RelativeDocumentMoniker": "1C_app\\ChoiceUser.xaml",
+              "ToolTip": "C:\\Users\\NikitinNM\\Desktop\\NewProject\\1C_app\\1C_app\\ChoiceUser.xaml",
+              "RelativeToolTip": "1C_app\\ChoiceUser.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-18T07:39:34.085Z",
               "EditorCaption": ""
             }
           ]
